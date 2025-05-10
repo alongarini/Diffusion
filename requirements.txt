@@ -1,0 +1,14 @@
+-e .
+torch>=1.10.0
+torchvision>=0.11.1
+numpy>=1.21.0
+matplotlib>=3.4.3
+pillow>=9.0.0
+scikit-image>=0.18.3
+piq>=0.7.0
+torchmetrics>=0.7.0
+tqdm>=4.62.3
+seaborn>=0.11.2
+scikit-learn>=1.0.1
+psutil
+opencv-python
