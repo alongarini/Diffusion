@@ -1,8 +1,8 @@
-# Projeto: Comparativo entre Modelos GANs e Diffusion
+# Projeto: Modelos de difusão para restauração de imagem facial parcialmente ocluída.
 
 ## Objetivo
 
-O objetivo deste projeto é comparar o desempenho de modelos GANs e Diffusion na geração de imagens, utilizando um fluxo robusto de machine learning com conjuntos de treino, validação e teste. Após a geração, as imagens passam por um classificador CNN e são avaliadas por um sistema completo de métricas de qualidade, assertividade e performance.
+O objetivo deste projeto é verificar o desempenho de modelos de Diffusion na reconstrução de imagens, e também com GANs Redes Adversárias Generativas utilizando um fluxo robusto deredes neurais com conjuntos de treino, teste e validação. Após a geração, as imagens passam por um classificador CNN e são avaliadas por um sistema completo de métricas de qualidade, assertividade e performance.
 
 ---
 
