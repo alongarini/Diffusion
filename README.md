@@ -1,8 +1,47 @@
-# Projeto: Modelos de difusão para restauração de imagem facial parcialmente ocluída.
+# Projeto: Comparativo entre Modelos GANs e Diffusion
 
 ## Objetivo
 
-O objetivo deste projeto é verificar o desempenho de modelos de Diffusion na reconstrução de imagens, e também com GANs Redes Adversárias Generativas utilizando um fluxo robusto deredes neurais com conjuntos de treino, teste e validação. Após a geração, as imagens passam por um classificador CNN e são avaliadas por um sistema completo de métricas de qualidade, assertividade e performance.
+O objetivo deste projeto é comparar o desempenho de modelos GANs e Diffusion na geração de imagens, utilizando um fluxo robusto de machine learning com conjuntos de treino, validação e teste. Após a geração, as imagens passam por um classificador CNN e são avaliadas por um sistema completo de métricas de qualidade, assertividade e performance.
+
+---
+
+## Estrutura dos Módulos Principais
+
+```
+src/
+  pipeline/
+    runner.py           # Orquestração do pipeline principal
+    scenario.py         # Execução de cenários (treinamento, avaliação, salvamento)
+    tuning.py           # Lógica de tuning de hiperparâmetros
+    visualization.py    # Funções de visualização e geração de gráficos
+    results.py          # Salvamento de métricas, checkpoints e resultados
+  models/
+  data/
+  metrics/
+  utils/
+```
+
+### Descrição dos módulos do pipeline
+- `runner.py`: Função principal do pipeline, responsável por orquestrar o fluxo.
+- `scenario.py`: Inicialização de modelos, geração de imagens e execução de cenários.
+- `tuning.py`: Ajuste automático de hiperparâmetros.
+- `visualization.py`: Geração de gráficos e visualizações.
+- `results.py`: Salvamento de métricas e checkpoints.
+
+---
+
+## Fluxo de Execução Simplificado
+
+O arquivo `main.py` agora apenas orquestra o pipeline, delegando responsabilidades para os módulos do diretório `src/pipeline/`.
+
+Exemplo de uso:
+```python
+from src.pipeline.runner import run_pipeline
+
+if __name__ == "__main__":
+    run_pipeline("config/model_config.yaml")
+```
 
 ---
 
@@ -167,6 +206,68 @@ perf_metric = PerformanceMetric('tempo')
 _, tempo = perf_metric.measure_time(funcao_a_medida, *args)
 mem = perf_metric.measure_memory()
 ```
+
+---
+
+## Como executar este projeto:
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/projeto-gan-diffusion.git
+cd projeto-gan-diffusion
+```
+
+2. Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
+
+3. Configure o projeto:
+```bash
+# Os parâmetros devem ser informados no arquivo:
+/config/model_config.yaml
+# Consulte o próprio arquivo para explicação de cada parâmetro.
+```
+
+4. Execute o projeto:
+```bash
+python main.py
+```
+
+---
+
+## Padronização de Docstrings
+
+Todas as funções e módulos do pipeline seguem o padrão abaixo para docstrings:
+
+```python
+def minha_funcao(param1: int, param2: str) -> bool:
+    """
+    Descrição sucinta da função.
+
+    Args:
+        param1 (int): Descrição do parâmetro 1.
+        param2 (str): Descrição do parâmetro 2.
+
+    Returns:
+        bool: Descrição do valor de retorno.
+    """
+    # implementação
+```
+
+---
+
+## Exportação de Resultados
+
+- Todos os resultados (numéricos e visuais) são salvos em diretórios organizados, prontos para análise e inclusão em relatórios/dissertação.
+- Gráficos comparativos, histogramas, matrizes de confusão e amostras de imagens são exportados automaticamente.
+- Relatórios de performance e tabelas de comparação são gerados para cada cenário.
+
+---
+
+## Observações
+- O pipeline foi refatorado para facilitar manutenção, testes e extensibilidade.
+- Consulte os módulos em `src/pipeline/` para detalhes de implementação e exemplos de uso avançado.
 
 ---
 
